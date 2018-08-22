@@ -1,0 +1,2591 @@
+var features = {
+	"features": [{
+			"uriNotMatchedValueEqual": {},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#36370161",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Mon Jan 04 23:03:51 CET 2016",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Mon Jan 04 23:03:51 CET 2016",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/VoWo",
+					"value": "VoWo",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#0c144261-1036-471d-8146-a27550d4cc6f",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 248377031
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 6,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Werthmannstraße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Werthmannstraße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50935",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50935",
+					"classlabel": "Postzustellbezirk"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q547481",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Lindenthal",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.8927862, 50.9235835], [6.8930344, 50.9226386], [6.8938498, 50.9227164], [6.8940537, 50.9219319], [6.8940841, 50.9217349], [6.8955752, 50.9219078], [6.8958134, 50.9219354], [6.8966246, 50.9221863], [6.8975861, 50.9224836], [6.8984063, 50.9224785], [6.8984051, 50.922505], [6.8993609, 50.9225263], [6.8996428, 50.9238138], [6.8996823, 50.9239943], [6.8996409, 50.9240527], [6.8995769, 50.9240894], [6.8992554, 50.9241749], [6.8990452, 50.924194], [6.8976333, 50.9241291], [6.8972275, 50.9240911], [6.895796, 50.923932], [6.8954756, 50.9238961], [6.8927862, 50.9235835]]],
+				"type": "Polygon"
+			},
+			"id": "8a172686-ef29-481b-b84a-2b27fd8ee481",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Bina nömrəsi": {
+					"value": {
+						"color": "orange",
+						"urival": "1C",
+						"uri": "http://www.wikidata.org/entity/Q1413235",
+						"value": "1C",
+						"classlabel": "Bina nömrəsi"
+					}
+				},
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"website": {
+					"urival": "http://xmlns.com/foaf/0.1/homepage",
+					"value": "www.hohenlind.de"
+				},
+				"internet_access": {
+					"urival": "wlan",
+					"value": "wlan"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"operator": {
+					"color": "blue",
+					"urival": "St.-Elisabeth-Krankenhaus GmbH",
+					"value": "St.-Elisabeth-Krankenhaus GmbH",
+					"uri": "http://www.wikidata.org/entity/Q131030"
+				},
+				"alt_name": {
+					"urival": "Hohenlind",
+					"value": "Hohenlind"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "orange",
+					"urival": "1C",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "1C",
+					"classlabel": "Bina nömrəsi"
+				},
+				"phone": {
+					"urival": "http://xmlns.com/foaf/0.1/phone",
+					"value": "+49 221 46770"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Werthmannstraße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Werthmannstraße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50935",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50935",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "blue",
+					"urival": "St.-Elisabeth-Krankenhaus Hohenlind",
+					"value": "St.-Elisabeth-Krankenhaus Hohenlind",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"wikipedia": {
+					"color": "blue",
+					"urival": "de:Lindenthal_(Köln)#Hohenlind",
+					"value": "de:Lindenthal_(Köln)#Hohenlind",
+					"uri": "http://www.wikidata.org/entity/Q52"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q547481",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Lindenthal",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.26464048174925",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912658191"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "4 Jan 2016 22:03:51 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "3.7751797393181796E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.01668821354721122"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "23.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {
+				"city": {
+					"value": "addr:city",
+					"refValue": "[http://semgis.de/geodata#hasAdministrativeAreaLevel_2,http://semgis.de/geodata#hasSettlement,]"
+				},
+				"name": {
+					"value": "name",
+					"refValue": "[NAME,http://geotoolkit.org:NAME,]"
+				},
+				"suburb": {
+					"value": "addr:suburb",
+					"refValue": "[STADTTEIL,http://geotoolkit.org:STADTTEIL,http://semgis.de/geodata#hasSubDistrict,]"
+				}
+			},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#42164078",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Thu Sep 15 07:33:53 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Thu Sep 15 07:33:53 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/wheelmap_visitor",
+					"value": "wheelmap_visitor",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#81cfc215-f9d6-46be-97c0-8dcda4ddcfe5",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 162363407
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 6,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50679",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50679",
+					"classlabel": "Postzustellbezirk"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9801316, 50.9330883], [6.9801752, 50.9330746], [6.9798229, 50.9326027], [6.979792, 50.9326062], [6.9797687, 50.9325868], [6.9793113, 50.9321296], [6.9796383, 50.932], [6.9808264, 50.9315297], [6.9813639, 50.9317643], [6.9816667, 50.9320503], [6.9817367, 50.9320215], [6.9822382, 50.9324998], [6.9824542, 50.9329281], [6.9821648, 50.9329827], [6.9822782, 50.9332232], [6.9817407, 50.9333314], [6.981003, 50.9334798], [6.9807593, 50.9331524], [6.9802133, 50.9332529], [6.9801316, 50.9330883]]],
+				"type": "Polygon"
+			},
+			"id": "e7419532-0051-444b-b33e-cff249895d90",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Aholi punkti": {
+					"value": {
+						"color": "orange",
+						"urival": "Deutz",
+						"uri": "http://www.wikidata.org/entity/Q486972",
+						"value": "Deutz",
+						"classlabel": "Aholi punkti"
+					}
+				},
+				"Bina nömrəsi": {
+					"value": {
+						"color": "orange",
+						"urival": "38",
+						"uri": "http://www.wikidata.org/entity/Q1413235",
+						"value": "38",
+						"classlabel": "Bina nömrəsi"
+					}
+				},
+				"Ausserortsstrasse": {
+					"value": {
+						"color": "orange",
+						"urival": "Alarichstraße",
+						"uri": "http://www.wikidata.org/entity/Q34442",
+						"value": "Alarichstraße",
+						"classlabel": "Ausserortsstrasse"
+					}
+				},
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"city": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q1561718",
+					"value": "Köln",
+					"uri": "http://linkedgeodata.org/ontology/addr:city"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"postcode": {
+					"urival": "50679",
+					"value": "50679"
+				},
+				"emergency": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"Aholi punkti": {
+					"color": "orange",
+					"urival": "Deutz",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Deutz",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "orange",
+					"urival": "38",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "38",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ref": {
+					"urival": "Eduardus-Krankenhaus",
+					"value": "Eduardus-Krankenhaus"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"housenumber": {
+					"urival": "3-17",
+					"value": "3-17"
+				},
+				"street": {
+					"urival": "Custodisstraße",
+					"value": "Custodisstraße"
+				},
+				"Ausserortsstrasse": {
+					"color": "orange",
+					"urival": "Alarichstraße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Alarichstraße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50679",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50679",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "orange",
+					"urival": "Eduardus-Krankenhaus",
+					"value": "Eduardus-Krankenhaus",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"suburb": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q3621",
+					"value": "Deutz",
+					"uri": "http://linkedgeodata.org/ontology/addr:suburb"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.1577895565029",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912687972"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "15 Sep 2016 05:33:53 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "3.2946470689854124E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.008231894017831492"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "20.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {
+				"name": {
+					"value": "name",
+					"refValue": "[NAME,http://geotoolkit.org:NAME,]"
+				}
+			},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#20621636",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Mon Feb 17 20:01:37 CET 2014",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Mon Feb 17 20:01:37 CET 2014",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/Teddy73",
+					"value": "Teddy73",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#82d7f269-fbea-443a-b495-eb3051aa2280",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 261756353
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 2,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"street": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q2235819",
+					"uri": "http://www.wikidata.org/entity/Q79007",
+					"value": "Schillerstraße",
+					"classlabel": "street"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50968",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50968",
+					"classlabel": "Postzustellbezirk"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9659861, 50.9107582], [6.9665297, 50.9096993], [6.9677177, 50.9099076], [6.9672486, 50.9109969], [6.9659861, 50.9107582]]],
+				"type": "Polygon"
+			},
+			"id": "1af355fa-a063-41d1-a62e-806d20a16fcd",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Bina nömrəsi": {
+					"value": {
+						"color": "orange",
+						"urival": "23",
+						"uri": "http://www.wikidata.org/entity/Q1413235",
+						"value": "23",
+						"classlabel": "Bina nömrəsi"
+					}
+				},
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				},
+				"city part of Cologne": {
+					"value": {
+						"color": "orange",
+						"urival": "http://www.wikidata.org/entity/Q3853",
+						"uri": "http://www.wikidata.org/entity/Q15632166",
+						"value": "Bayenthal",
+						"classlabel": "city part of Cologne"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"website": {
+					"urival": "http://xmlns.com/foaf/0.1/homepage",
+					"value": "http://www.antonius-koeln.de/"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"emergency": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"source": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q1510180",
+					"value": "survey",
+					"uri": "http://www.wikidata.org/entity/Q224772"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "orange",
+					"urival": "23",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "23",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ref": {
+					"urival": "St. Antonius",
+					"value": "St. Antonius"
+				},
+				"street": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q2235819",
+					"uri": "http://www.wikidata.org/entity/Q79007",
+					"value": "Schillerstraße",
+					"classlabel": "street"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50968",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50968",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "orange",
+					"urival": "St. Antonius Krankenhaus",
+					"value": "St. Antonius Krankenhaus",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"city part of Cologne": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q3853",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Bayenthal",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.14664015665415",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912705270"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "17 Feb 2014 19:01:37 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "1.0643734956516937E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.00486728595684687"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "5.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#42466696",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Tue Sep 27 12:20:07 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Tue Sep 27 12:20:07 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/Plätt",
+					"value": "Plätt",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#25069275-6f0a-4da9-bc90-b03e4aab2f11",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 100261826
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 5,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50931",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50931",
+					"classlabel": "Postzustellbezirk"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q547481",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Lindenthal",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9229633, 50.9309998], [6.922434, 50.9321997], [6.9231994, 50.9322885], [6.9231499, 50.9324445], [6.9246082, 50.9326893], [6.9249792, 50.9321621], [6.925226, 50.9317095], [6.9247447, 50.9316216], [6.9248815, 50.9313105], [6.9243504, 50.9312243], [6.9229633, 50.9309998]]],
+				"type": "Polygon"
+			},
+			"id": "d351a34f-3b01-435f-8821-813a51c13b6e",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Bina nömrəsi": {
+					"value": {
+						"color": "orange",
+						"urival": "4",
+						"uri": "http://www.wikidata.org/entity/Q1413235",
+						"value": "4",
+						"classlabel": "Bina nömrəsi"
+					}
+				},
+				"Ausserortsstrasse": {
+					"value": {
+						"color": "orange",
+						"urival": "Liliencronstraße",
+						"uri": "http://www.wikidata.org/entity/Q34442",
+						"value": "Liliencronstraße",
+						"classlabel": "Ausserortsstrasse"
+					}
+				},
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "orange",
+					"urival": "4",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "4",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ref": {
+					"urival": "Malteser Krankenhaus St Hildegardis",
+					"value": "Malteser Krankenhaus St Hildegardis"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"Ausserortsstrasse": {
+					"color": "orange",
+					"urival": "Liliencronstraße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Liliencronstraße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50931",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50931",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "blue",
+					"urival": "St. Hildegardis Krankenhaus",
+					"value": "St. Hildegardis Krankenhaus",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"emergency": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q547481",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Lindenthal",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.2372288599862",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912722519"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "27 Sep 2016 10:20:07 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "2.606031527763175E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.0076568414745982"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "11.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {
+				"city": {
+					"value": "addr:city",
+					"refValue": "[http://semgis.de/geodata#hasAdministrativeAreaLevel_2,http://semgis.de/geodata#hasSettlement,]"
+				},
+				"housenumber": {
+					"value": "addr:housenumber",
+					"refValue": "[OBJECTID,http://geotoolkit.org:OBJECTID,http://semgis.de/geodata#hasHouseNumber,]"
+				}
+			},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#23006955",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Wed Jun 18 17:06:32 CEST 2014",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Wed Jun 18 17:06:32 CEST 2014",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/Raymond",
+					"value": "Raymond",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#27ab6ac0-edf7-4e3b-801c-f7f41ca4e975",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 23705184
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 8,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "3",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "3",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Im_Mediapark",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Im_Mediapark",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50670",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50670",
+					"classlabel": "Postzustellbezirk"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q3823",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Köln-Neustadt-Nord",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9479813, 50.9484307], [6.9478858, 50.9485289], [6.9478774, 50.9485377], [6.9478581, 50.9485542], [6.9478264, 50.948578], [6.9478035, 50.9485932], [6.9478192, 50.9486034], [6.9477944, 50.9486174], [6.9477665, 50.9486332], [6.9477317, 50.9486498], [6.9477035, 50.9486621], [6.9476631, 50.9486778], [6.9476109, 50.9486949], [6.947553, 50.9487102], [6.9475452, 50.9486972], [6.9474953, 50.9487073], [6.9474452, 50.9487151], [6.9473753, 50.9487219], [6.9473097, 50.948724], [6.9473082, 50.9486356], [6.9472528, 50.948636], [6.9472522, 50.9486097], [6.9472499, 50.9486096], [6.9472489, 50.9485534], [6.9472545, 50.9485534], [6.9472545, 50.948555], [6.9473069, 50.9485547], [6.947306, 50.9484999], [6.9473636, 50.9484962], [6.9473982, 50.948491], [6.9474239, 50.9484858], [6.9474551, 50.9484776], [6.94748, 50.9484693], [6.947509, 50.9484576], [6.947528, 50.9484483], [6.9475435, 50.9484398], [6.94756, 50.9484296], [6.9475711, 50.9484218], [6.9475848, 50.9484113], [6.9476001, 50.9483978], [6.9477179, 50.9482762], [6.9478411, 50.9483239], [6.9478014, 50.9483645], [6.947844, 50.948381], [6.9478465, 50.9483784], [6.9479813, 50.9484307]]],
+				"type": "Polygon"
+			},
+			"id": "5f3a8d22-e0f8-438b-a2ff-f3f7aa879ae8",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"shape": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q1837548",
+					"value": "flat",
+					"uri": "http://linkedgeodata.org/ontology/roof:shape"
+				},
+				"city": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q1561718",
+					"value": "Köln",
+					"uri": "http://linkedgeodata.org/ontology/addr:city"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"use": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q20445212",
+					"value": "office",
+					"uri": "http://linkedgeodata.org/ontology/use"
+				},
+				"postcode": {
+					"urival": "50670",
+					"value": "50670"
+				},
+				"source": {
+					"color": "blue",
+					"urival": "photography",
+					"value": "photography",
+					"uri": "http://www.wikidata.org/entity/Q224772"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"building": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "3",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "3",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"housenumber": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q10397297",
+					"value": "3",
+					"uri": "http://linkedgeodata.org/ontology/addr:housenumber"
+				},
+				"street": {
+					"urival": "Im Mediapark",
+					"value": "Im Mediapark"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Im_Mediapark",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Im_Mediapark",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50670",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50670",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q316233",
+					"value": "MediaPark",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"levels": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q1049276",
+					"value": "7",
+					"uri": "http://linkedgeodata.org/ontology/building:levels"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q3823",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Köln-Neustadt-Nord",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.226713928673185",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912740757"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "18 Jun 2014 15:06:32 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "1.2344937649566567E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.0020143364820734535"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "46.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {
+				"city": {
+					"value": "addr:city",
+					"refValue": "[http://semgis.de/geodata#hasAdministrativeAreaLevel_2,http://semgis.de/geodata#hasSettlement,]"
+				},
+				"name": {
+					"value": "name",
+					"refValue": "[NAME,http://geotoolkit.org:NAME,]"
+				}
+			},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#31558475",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Fri May 29 12:06:23 CEST 2015",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Fri May 29 12:06:23 CEST 2015",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/Grauer",
+					"value": "Grauer",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#8371fa78-3ac5-4efb-9929-bcd15122d0ee",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 168986558
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 6,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "11",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "11",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Kunibertskloster",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Kunibertskloster",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50668",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50668",
+					"classlabel": "Postzustellbezirk"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q3005",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Köln-Altstadt-Nord",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9618802, 50.9468929], [6.9615847, 50.9469367], [6.9616112, 50.9470074], [6.9615745, 50.9470114], [6.9615413, 50.9470151], [6.9614914, 50.9471679], [6.9614646, 50.9472], [6.9614502, 50.9472358], [6.9614425, 50.9473461], [6.9614498, 50.9473693], [6.9614693, 50.9474343], [6.9614851, 50.9474694], [6.9614916, 50.9474937], [6.9615572, 50.9475917], [6.9616554, 50.9477071], [6.9616927, 50.9477556], [6.9618211, 50.9479136], [6.9618599, 50.94796], [6.9619841, 50.9481339], [6.9629789, 50.947922], [6.9629554, 50.9478783], [6.9628631, 50.9477425], [6.962684, 50.9474381], [6.962696, 50.9474267], [6.9626931, 50.9474183], [6.9626583, 50.9473815], [6.9626003, 50.9473154], [6.9625799, 50.9472966], [6.9625695, 50.9472798], [6.9624599, 50.9471412], [6.9624381, 50.9471203], [6.9623914, 50.9470882], [6.9622724, 50.9469884], [6.962195, 50.9468829], [6.9618802, 50.9468929]]],
+				"type": "Polygon"
+			},
+			"id": "bc3f6bc3-29ed-4fa3-b1dc-70578864dcab",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"website": {
+					"urival": "http://xmlns.com/foaf/0.1/homepage",
+					"value": "http://www.st-marien-hospital.de"
+				},
+				"city": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q1561718",
+					"value": "Köln",
+					"uri": "http://linkedgeodata.org/ontology/addr:city"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"postcode": {
+					"urival": "50668",
+					"value": "50668"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "11",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "11",
+					"classlabel": "Bina nömrəsi"
+				},
+				"ortsteil": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q449272",
+					"uri": "http://www.wikidata.org/entity/Q253019",
+					"value": "Innenstadt",
+					"classlabel": "ortsteil"
+				},
+				"housenumber": {
+					"urival": "11-13",
+					"value": "11-13"
+				},
+				"street": {
+					"urival": "Kunibertskloster",
+					"value": "Kunibertskloster"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Kunibertskloster",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Kunibertskloster",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50668",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50668",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "orange",
+					"urival": "St. Marien-Hospital",
+					"value": "St. Marien-Hospital",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"wikipedia": {
+					"color": "blue",
+					"urival": "de:St. Marien-Hospital Köln",
+					"value": "de:St. Marien-Hospital Köln",
+					"uri": "http://www.wikidata.org/entity/Q52"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q3005",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Köln-Altstadt-Nord",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.20482125632279",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912761004"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "29 May 2015 10:06:23 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "2.3592156150109567E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.004420837887915532"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "35.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}, {
+			"uriNotMatchedValueEqual": {
+				"city": {
+					"value": "addr:city",
+					"refValue": "[http://semgis.de/geodata#hasAdministrativeAreaLevel_2,http://semgis.de/geodata#hasSettlement,]"
+				},
+				"housenumber": {
+					"value": "addr:housenumber",
+					"refValue": "[http://semgis.de/geodata#hasHouseNumber,]"
+				}
+			},
+			"metadata": {
+				"wasGeneratedBy": {
+					"value": "http://semgis.de/stat#39952788",
+					"uri": "http://www.w3.org/ns/prov#wasGeneratedBy"
+				},
+				"endedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Sat Jun 11 15:35:39 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#endedAtTime"
+				},
+				"startedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "Sat Jun 11 15:35:39 CEST 2016",
+					"uri": "http://www.w3.org/ns/prov#startedAtTime"
+				},
+				"scale": {
+					"urival": "http://www.w3.org/2001/XMLSchema#int",
+					"uri": "http://www.opengis.net/ont/geosparql#Geometry",
+					"value": 1.0E7
+				},
+				"simple": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#simple"
+				},
+				"wasAssociatedWith": {
+					"urival": "https://www.openstreetmap.org/user/Basa_K",
+					"value": "Basa_K",
+					"uri": "http://www.w3.org/ns/prov#wasAssociatedWith"
+				},
+				"wasDerivedFrom": {
+					"urival": "xsd:dateTime",
+					"value": "http://semgis.de/stat#27c2408c-b0f7-45ad-92ff-347e80d92f70",
+					"uri": "http://www.w3.org/ns/prov#wasDerivedFrom"
+				},
+				"generatedAtTime": {
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"value": "[null,http://semgis.de/stat#creationDate]",
+					"uri": "http://www.w3.org/ns/prov#generatedAtTime"
+				},
+				"id": {
+					"value": 23704673
+				},
+				"version": {
+					"urival": "http://www.w3.org/2001/XMLSchema#string",
+					"value": 23,
+					"uri": "http://www.daml.org/services/owl-s/1.2/Service.owl#serviceTypeVersion"
+				}
+			},
+			"matchedProperties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "59",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "59",
+					"classlabel": "Bina nömrəsi"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Amsterdamer_Straße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Amsterdamer_Straße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50735",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50735",
+					"classlabel": "Postzustellbezirk"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q1534645",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Nippes",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"geometry": {
+				"coordinates": [[[6.9658462, 50.9634747], [6.9681555, 50.9632473], [6.9679136, 50.962212], [6.9674582, 50.9622742], [6.967403, 50.9622585], [6.9673525, 50.9621208], [6.9673021, 50.9621118], [6.9668209, 50.9621575], [6.966785, 50.9620047], [6.9657817, 50.9620983], [6.9647855, 50.9623706], [6.9654997, 50.9634186], [6.9658462, 50.9634747]]],
+				"type": "Polygon"
+			},
+			"id": "2ffd69e8-0e9b-4e67-916f-d16bbb9377c7",
+			"type": "Feature",
+			"uriMatchedValueDifferent": {
+				"Administracinis vienetas": {
+					"value": {
+						"color": "orange",
+						"urival": "Köln",
+						"uri": "http://www.wikidata.org/entity/Q56061",
+						"value": "Köln",
+						"classlabel": "Administracinis vienetas"
+					}
+				}
+			},
+			"properties": {
+				"country": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q183",
+					"uri": "http://www.wikidata.org/entity/Q6256",
+					"value": "Germany",
+					"classlabel": "country"
+				},
+				"wheelchair": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"website": {
+					"urival": "http://xmlns.com/foaf/0.1/homepage",
+					"value": "http://www.kliniken-koeln.de/Kinderkrankenhaus_Index.htm"
+				},
+				"city": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q1561718",
+					"value": "Köln",
+					"uri": "http://linkedgeodata.org/ontology/addr:city"
+				},
+				"amenity": {
+					"color": "blue",
+					"urival": "http://www.wikidata.org/entity/Q180370",
+					"value": "hospital",
+					"uri": "http://www.wikidata.org/entity/Q2883141"
+				},
+				"postcode": {
+					"urival": "50735",
+					"value": "50735"
+				},
+				"emergency": {
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"value": "true"
+				},
+				"Administracinis vienetas": {
+					"color": "orange",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q56061",
+					"value": "Köln",
+					"classlabel": "Administracinis vienetas"
+				},
+				"Aholi punkti": {
+					"color": "green",
+					"urival": "Köln",
+					"uri": "http://www.wikidata.org/entity/Q486972",
+					"value": "Köln",
+					"classlabel": "Aholi punkti"
+				},
+				"Bina nömrəsi": {
+					"color": "green",
+					"urival": "59",
+					"uri": "http://www.wikidata.org/entity/Q1413235",
+					"value": "59",
+					"classlabel": "Bina nömrəsi"
+				},
+				"housenumber": {
+					"color": "orange",
+					"urival": "http://www.wikidata.org/entity/Q1166560",
+					"value": "59",
+					"uri": "http://linkedgeodata.org/ontology/addr:housenumber"
+				},
+				"phone": {
+					"urival": "+49 221 8907-0",
+					"value": "+49 221 8907-0"
+				},
+				"street": {
+					"urival": "Amsterdamer Straße",
+					"value": "Amsterdamer Straße"
+				},
+				"Ausserortsstrasse": {
+					"color": "green",
+					"urival": "Amsterdamer_Straße",
+					"uri": "http://www.wikidata.org/entity/Q34442",
+					"value": "Amsterdamer_Straße",
+					"classlabel": "Ausserortsstrasse"
+				},
+				"Postzustellbezirk": {
+					"color": "green",
+					"urival": "50735",
+					"uri": "http://www.wikidata.org/entity/Q2106349",
+					"value": "50735",
+					"classlabel": "Postzustellbezirk"
+				},
+				"name": {
+					"color": "blue",
+					"urival": "Kinderkrankenhaus Amsterdamer Straße",
+					"value": "Kinderkrankenhaus Amsterdamer Straße",
+					"uri": "http://www.wikidata.org/entity/Q82799"
+				},
+				"city part of Cologne": {
+					"color": "green",
+					"urival": "http://www.wikidata.org/entity/Q1534645",
+					"uri": "http://www.wikidata.org/entity/Q15632166",
+					"value": "Nippes",
+					"classlabel": "city part of Cologne"
+				}
+			},
+			"quality": {
+				"numberOfMissingPointConnections": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"value": "0.0"
+				},
+				"avgDiameter": {
+					"value": "0.0"
+				},
+				"distance": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Meter",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "62.220925164916416",
+					"uri": "http://www.semgis.de/stat#distance"
+				},
+				"latency": {
+					"value": "1491912778431"
+				},
+				"avgAmountOfOtherAttributesGained": {
+					"value": "0.0"
+				},
+				"percentageOfValidGeometries": {
+					"optimalValue": 0,
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "DatasetMetrics",
+					"value": "100.0",
+					"uri": "http://semgis.de/stat#percentageOfValidGeometries"
+				},
+				"completeness": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"percentageOfSimpleGeometries": {
+					"value": "100.0"
+				},
+				"freshness": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#dateTime",
+					"category": "IndividualMetric",
+					"value": "11 Jun 2016 13:35:39 GMT()",
+					"uri": "http://semgis.de/stat#freshness"
+				},
+				"avgPercentageOfDuplicateFeatureLabels": {
+					"value": "0.0"
+				},
+				"resolution": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "red",
+					"evalPositive": false,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "7.0()",
+					"uri": "http://semgis.de/stat#resolution"
+				},
+				"amountOfGainedIndividuals": {
+					"metrictype": "RELATIVEMETRIC",
+					"category": "DatasetMetrics",
+					"value": "1.0"
+				},
+				"valid": {
+					"metrictype": "BINARYMETRIC",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#boolean",
+					"category": "IndividualMetric",
+					"value": true,
+					"uri": "http://www.semgis.de/stat#valid",
+					"classlabel": "http://www.w3.org/2001/XMLSchema#boolean"
+				},
+				"haussdorfSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "1.65638542378721E-5",
+					"uri": "http://www.semgis.de/stat#haussdorfSimilarity"
+				},
+				"avgLength": {
+					"value": "0.00839849741908536"
+				},
+				"percentageOfRectangleGeometries": {
+					"value": "0.0"
+				},
+				"amountOfRecognizableFeatures": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Unitless",
+					"color": "green",
+					"evalPositive": true,
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0()",
+					"uri": "http://semgis.de/stat#amountOfRecognizableFeatures"
+				},
+				"avgArea": {
+					"value": "0.0"
+				},
+				"percentageOfClosedGeometries": {
+					"value": "0.0"
+				},
+				"amountOfNonRecognizableFeatures": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"superiorGeometry": {
+					"metrictype": "BINARYMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"positionalAccuracy": {
+					"value": "0.0"
+				},
+				"duplications": {
+					"optimalValue": "0.0",
+					"metrictype": "OPTIMALVALUEMETRIC",
+					"category": "IndividualMetric",
+					"value": "0.0"
+				},
+				"avgNumPoints": {
+					"value": "13.0"
+				},
+				"areaSimilarity": {
+					"metrictype": "RELATIVEMETRIC",
+					"unit": "http://data.nasa.gov/qudt/owl/unit#Percent",
+					"urival": "http://www.w3.org/2001/XMLSchema#double",
+					"category": "IndividualMetric",
+					"value": "0.0",
+					"uri": "http://www.semgis.de/stat#areaSimilarity"
+				},
+				"percentageOfEmptyGeometries": {
+					"value": "0.0"
+				},
+				"avgWidth": {
+					"value": "0.0"
+				},
+				"amountOfGeoCodingAttributesGained": {
+					"value": "0.0"
+				}
+			}
+		}
+	],
+	"type": "FeatureCollection"
+}

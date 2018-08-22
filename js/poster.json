@@ -1,0 +1,9 @@
+{
+	"metadata": {"wasGeneratedBy": {"value": "http://semgis.de/stat#36370161","uri": "http://www.w3.org/ns/prov#wasGeneratedBy"}},
+	"properties": {"country": {"urival": "http://www.wikidata.org/entity/Q183","uri": "http://www.wikidata.org/entity/Q6256","value": "Germany","classlabel": "country"}},
+        "geometry": {"coordinates": [[[6.8927862, 50.9235835], [6.8930344, 50.9226386], [6.8938498, 50.9227164], [6.8940537, 50.9219319], [6.8940841, 50.9217349], [6.8955752, 50.9219078], [6.8958134, 50.9219354], [6.8966246, 50.9221863], [6.8975861, 50.9224836], [6.8984063, 50.9224785], [6.8984051, 50.922505], [6.8993609, 50.9225263], [6.8996428, 50.9238138], [6.8996823, 50.9239943], [6.8996409, 50.9240527], [6.8995769, 50.9240894], [6.8992554, 50.9241749], [6.8990452, 50.924194], [6.8976333, 50.9241291], [6.8972275, 50.9240911], [6.895796, 50.923932], [6.8954756, 50.9238961], [6.8927862, 50.9235835]]],"type": "Polygon"},
+	"id": "8a172686-ef29-481b-b84a-2b27fd8ee481",
+	"type": "Feature",
+        "quality": {"freshness": {"metrictype": "RELATIVEMETRIC","unit": "http://data.nasa.gov/qudt/owl/unit#Days","urival": "http://www.w3.org/2001/XMLSchema#dateTime","category": "IndividualMetric","value": "4 Jan 2016 22:03:51 GMT()","uri": "http://semgis.de/stat#freshness"},								"distance": {"metrictype": "RELATIVEMETRIC","unit": "http://data.nasa.gov/qudt/owl/unit#Meter","urival": "http://www.w3.org/2001/XMLSchema#double","category": "IndividualMetric","value": "62.220925164916416","uri": "http://www.semgis.de/stat#distance"}},
+	"prediction": {"featureset_change": {"result": "WillChange","algorithm":"RandomForest"}}
+}
