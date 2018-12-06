@@ -976,13 +976,9 @@ featbbox=turf.bboxPolygon(extent(features))
 var zoomFS = new L.Control.ZoomFS(); 
 mymap.addControl(zoomFS);
 //https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw
-	const baseMap=L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2VtZ2lzIiwiYSI6ImNpazl1dGk2eTAwMWx3Zmx5Yzl3MHh6cnkifQ.vLUq0RpyqMQAa1fJdS2WLA', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery � <a href="http://mapbox.com">Mapbox</a>',
-		id: 'mapbox.streets'
-	}).addTo(mymap);
+	const baseMap=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
 	const layer = L.geoJson(features,{style: function(feature) {
         return {color: calculateObjectColor(feature),weight: 2,
                 opacity: 1,
