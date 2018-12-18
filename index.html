@@ -3,12 +3,12 @@
 <title>OpenStreetMap Quality Assessment Tool</title>
 
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-  <script src="https://rawgit.com/lvoogdt/master/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+  <script src="https://fastcdn.org/Leaflet.awesome-markers/2.0.1/leaflet.awesome-markers.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 <!--<script src='https://api.mapbox.com/mapbox.js/plugins/geojson-extent/v0.0.1/geojson-extent.js'></script>-->
   <!--<script src="leafletjsonresult.json"></script>-->
- <script src="jsondebugexport.json"></script>
+ <script src="js/museum.json"></script>
   <script src="js/reqprofiles.js"></script>
   <script src="js/evaluation.js"></script>
    <script src="js/leaflet_fullscreen.js"></script>
@@ -19,7 +19,7 @@
   <script src="js/hospital_reference.json"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
- <link rel="stylesheet" href="http://watson.lennardvoogdt.nl/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css">
+ <link rel="stylesheet" href="https://fastcdn.org/Leaflet.awesome-markers/2.0.1/leaflet.awesome-markers.css">
  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
   <link rel="stylesheet" href="css/csstree.css">
@@ -978,7 +978,7 @@ mymap.addControl(zoomFS);
 //https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw
 	const baseMap=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+	}).addTo(mymap);
 	const layer = L.geoJson(features,{style: function(feature) {
         return {color: calculateObjectColor(feature),weight: 2,
                 opacity: 1,
