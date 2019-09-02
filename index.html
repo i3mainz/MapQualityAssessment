@@ -908,10 +908,10 @@
   function clearMap() {
 	for(i in resultLayerCollection){
             try {
-                map.removeLayer(resultLayerCollection[i]);
+                mymap.removeLayer(resultLayerCollection[i]);
             }
             catch(e) {
-                console.log("problem with " + e + map._layers[i]);
+                console.log("problem with " + e + mymap._layers[i]);
             }
 	}
 }
