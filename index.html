@@ -103,6 +103,7 @@
 };
   
   function loadDataSets(name){
+  clearMap();
   jQuery.get("js/"+name+".json", function(data) {
    ////alert(data);
    features = JSON.parse(data)
@@ -903,6 +904,17 @@
 		}
 		return merger;
   }
+  
+  function clearMap() {
+	for(i in resultLayerCollection){
+            try {
+                map.removeLayer(resultLayerCollection[i]);
+            }
+            catch(e) {
+                console.log("problem with " + e + map._layers[i]);
+            }
+	}
+}
   
     function createStatPopup(badmetric,amountgeoms,popLocation){
 	//var div = $('<div style="width: 400px; height: 200px;"><canvas  id="chat_"'+create_UUID()+'"></canvas>'+JSON.stringify(badmetric)+'</div>')[0];
