@@ -106,10 +106,33 @@
   jQuery.get("js/"+name+".json", function(data) {
    ////alert(data);
    features = JSON.parse(data)
+   const layer = L.geoJson(features,{style: function(feature) {
+        return {color: calculateObjectColor(feature),weight: 2,
+                opacity: 1,
+                fillOpacity: 0.3,
+                fillColor: '#99ccff'}
+    },pointToLayer: function (feature,latlng) {  
+    	gicon=L.AwesomeMarkers.icon({icon: 'star',  prefix: 'glyphicon',markerColor:  calculateObjectColor(feature)});
+        return new L.marker(latlng,{icon:gicon});
+    },onEachFeature: function (feature, layer) {
+		  generateElements(layer,feature);
+       }}).addTo(mymap);
 });
   jQuery.get("js/"+name+"_reference.json", function(data) {
    ////alert(data);
    featureReference = JSON.parse(data)
+   const layerRef = L.geoJson(featureReference,{style: function(feature) {
+        return {color: calculateObjectColor(feature),weight: 2,
+                opacity: 0.2,
+                fillOpacity: 0.3,
+                fillColor: '#FFD000'};
+    },pointToLayer: function (feature,latlng) {  
+    	color=calculateObjectColor(feature);
+    	gicon=L.AwesomeMarkers.icon({icon: 'star', markerColor: color, prefix: 'fa'});
+        return new L.marker(latlng,{icon:gicon});
+    },onEachFeature: function (feature, layer) {
+		generateElements(layer,feature);
+     }}).addTo(mymap);
 });
   featbbox=turf.bboxPolygon(extent(features))
   updateLayerColors()
