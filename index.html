@@ -73,7 +73,7 @@
 }
 </style>
   <script>
-   
+  var resultLayerCollection=[]
   var allChecked=true;
   var mymap;
   var featureCounter=0,refFeatureCounter=0;
@@ -1026,6 +1026,7 @@ mymap.addControl(zoomFS);
     },onEachFeature: function (feature, layer) {
 		  generateElements(layer,feature);
        }}).addTo(mymap);
+    resultLayerCollection.push(layer)
 	const layerRef = L.geoJson(featureReference,{style: function(feature) {
         return {color: calculateObjectColor(feature),weight: 2,
                 opacity: 0.2,
@@ -1038,6 +1039,7 @@ mymap.addControl(zoomFS);
     },onEachFeature: function (feature, layer) {
 		generateElements(layer,feature);
      }}).addTo(mymap);
+     resultLayerCollection.push(layerRef);
 	mymap.fitBounds(layer.getBounds());
 	mymap.on('click', function(e) {  
         var popLocation= e.latlng;
