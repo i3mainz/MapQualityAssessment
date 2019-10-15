@@ -9,6 +9,7 @@
   <script src="js/leaflet_legend.js"/></script>
   	 <script src="js/leaflet-search.js"></script>
   	 <script src="js/featurefunctions.js"></script>
+  	   <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
   	 <script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.5/wicket.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -25,6 +26,9 @@
     var colors=["#e65c00","#0000ff","#8c66ff","#ff6666", "#4000ff", "#009933", "#4d004d","#4d004d","#ff0000","#4000ff","#00FF00","#CCEEFF","#0000A0","#800080","#F08080","#6A5ACD","#FFA500","#00FFFF","#C0C0C0","#808080","#FFFF00","#AAAAAA","#C1C1C1","#D4C3F1"]
 var htmlLegend1;
 var resultLayerCollection=[]
+var situationBuffer=[]
+var situationMap={}
+  var featbbox;
 var wikidataUrl = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
 function getThematicMapsForSpatialConcept(concept, inarea){
     var query="select ?coord ?con WHERE { ?con wdt:P31 wd:Q3914 . ?con wdt:P625 ?coord . ?con wdt:P17 wd:Q183 .}"
@@ -113,13 +117,17 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
             eligiblecounter++;
             resultstring+="<li><a href=\""+res["rel"]+"\" id=\""+res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1)+"\">"
             +getLabelForProperty(res["relLabel"])+
-            "</a><br/><button onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Create Map</button></li>"
+            "</a><br/><button onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Create Map</button><button onclick='addToSituation(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Add To Situation</button></li>"
             getLabelForProperty(res["relLabel"],res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1),labellang)
            }
         }
         $('#thematicmaps').html("Found "+eligiblecounter+" eligible properties<br/>"+resultstring)
         console.log(data); // [{'developerName': 'Mike Bostock'}]
     })
+}
+
+function addToSituation(concept,inarea,relation,labellang){
+    
 }
 
 function clearMap() {
@@ -508,7 +516,83 @@ var osmToWikidataMap={}
             loadItems();
         }
 });*/
+var tileid=0;
+		  var tiles = new L.GridLayer()
+/*tiles.createTile = function(coords) {
+  //alert("Grid Redraw")
+  var tile = L.DomUtil.create('canvas', 'leaflet-tile');
 
+  var ctx = tile.getContext('2d');
+
+  var size = this.getTileSize()
+  tile.width = size.x
+  tile.height = size.y
+  coords2= this.getTileSize()
+  coords2["z"]=coords.z
+  coords2["y"]=coords.y+1
+  coords2["x"]=coords.x+1;
+  // calculate projection coordinates of top left tile pixel
+  var nwPoint = coords.scaleBy(size)
+  var swPoint = coords2.scaleBy(size)
+  var nw = map.unproject(nwPoint, coords.z)
+  var sw = map.unproject(swPoint, coords.z)
+  ctx.fillStyle = 'white';
+  var bbox = [nw.lng, nw.lat, sw.lng, sw.lat];
+var poly = turf.bboxPolygon(bbox);
+var aggregation=0
+var countcontained=0;
+tilecriteriamap={}
+if(turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
+  for(feat in features["features"]){
+		geom=features["features"][feat]["geometry"]
+		turfgeom=turf.feature(geom)
+		//alert(JSON.stringify(bbox)+" - "+JSON.stringify(turfgeom))
+		if(turf.booleanWithin(turfgeom,poly)){
+			//alert(calculateObjectPercentage(features["features"][feat]))
+			res=calculateObjectPercentage(features["features"][feat])
+			aggregation+=res["percentageValue"]
+			mergeJSON(res["criteriamap"],tilecriteriamap);
+			//alert(JSON.stringify(res["criteriamap"]))
+			countcontained++;
+		}else{
+			//alert("NOT Within BoundingBox: "+JSON.stringify(poly))
+		}
+  }
+  }
+  badmetricgridcount[bbox]=tilecriteriamap;
+  geometriespergrid[bbox]=countcontained;
+    paintColor=getObjectColorForValue(aggregation/countcontained);
+  if(isNaN(aggregation/countcontained)){
+    ctx.lineWidth=0;
+	ctx.globalAlpha = 0.0
+  }else{ 
+  	ctx.globalAlpha = 0.7
+    ctx.fillRect(0, 0, size.x, 25);
+	ctx.fillStyle = 'black';
+	if(countcontained==1){
+	    ctx.fillText('Aggregated Score: '+Math.round(aggregation/countcontained).toFixed(2)+"% ["+paintColor["label"]+"] ("+countcontained+" Geometry)  <a href=# >Link</a>" , 20, 20); 
+	}else{
+	    ctx.fillText('Aggregated Score: '+Math.round(aggregation/countcontained).toFixed(2)+"% ["+paintColor["label"]+"] ("+countcontained+" Geometries)" , 20, 20); 
+	}
+	ctx.globalAlpha = 0.4
+	ctx.fillStyle = paintColor["color"];
+	ctx.fillRect(0, 25, size.x, size.y);
+    ctx.lineWidth=5;
+	ctx.globalAlpha = 0.7
+  }
+
+  ctx.strokeStyle = paintColor["color"];
+
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(size.x-1, 0);
+  ctx.lineTo(size.x-1, size.y-1);
+  ctx.lineTo(0, size.y-1);
+  ctx.closePath();
+  ctx.stroke();
+  return tile;
+}
+	tiles.addTo(map);*/
 	var layer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		maxZoom: 19
@@ -522,7 +606,8 @@ attribution: '&copy; Bundesamt f&uuml;r Kartographie und Geod&auml;sie 2017, <a 
 var overlayMaps={}
 	var baseMaps = {
 		"BKG": wmsLayer,
-        "OSM": layer
+        "OSM": layer,
+        "grid":tiles
 	};
 	baseMaps["OSM"].addTo(map);
 	L.control.scale({
@@ -548,9 +633,12 @@ In Area: <input type="text" id="areasearch" onkeyup="searchObjects()"/><input ty
 <option value="de" selected="selected">German</option>
 <option value="en">English</option>
 </select>
+Usecase Quality Assurance:
+
 <br/>
 <!--<button onclick="getThematicMapsForSpatialConcept()">Click</button>-->
 <button onclick="getThematicMapsAttributesForSpatialConcept()">Eligible Thematic Map Attributes</button>
+<input type="text" id="inputtext"/><button id="saveSituationButton" onclick="saveSituation()">Save Situation</button>
 <!--<button onclick="generateThematicMapForProperty()"></button>-->
 </div>
 <div class="left col-sm-6" id="reqprof">
