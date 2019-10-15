@@ -5,6 +5,8 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
   <script src="js/leaflet_legend.js"/></script>
   	 <script src="js/leaflet-search.js"></script>
@@ -20,7 +22,50 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.8/dist/leaflet-search.src.min.js"></script>
          <script src="js/leaflet_fullscreen.js"></script>
     <style>
+	.TFtable{
+		width:100%; 
+		border-collapse:collapse; 
+		border:0px;
+	}
+	.TFtable td{ 
+		padding:0px; border:#4e95f4 0px solid;
+	}
+	/* provide some minimal visual accomodation for IE8 and below */
+	.TFtable tr{
+		background: #B6B6B4;
+	}
+	/*  Define the background color for all the ODD background rows  */
+	.TFtable tr:nth-child(odd){ 
+		background: #B6B6B4;
+	}
+	/*  Define the background color for all the EVEN background rows  */
+	.TFtable tr:nth-child(even){
+		background: #C2DFFF;
+	}
+	.ui-btn.my-tooltip-btn,
+.ui-btn.my-tooltip-btn:hover,
+.ui-btn.my-tooltip-btn:active {
+    background: none;
+    border: 0;
+}
+	div.scrollable {
+    width: 100%;
+    height: 93%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
 #mapid {height: 500px;}
+ body {
+  display: block;
+}
+.span3:focus ~ .//alert {
+  display: none;
+}
+.span2:focus ~ .//alert {
+  display: block;
+}
 </style>
 <script>
     var colors=["#e65c00","#0000ff","#8c66ff","#ff6666", "#4000ff", "#009933", "#4d004d","#4d004d","#ff0000","#4000ff","#00FF00","#CCEEFF","#0000A0","#800080","#F08080","#6A5ACD","#FFA500","#00FFFF","#C0C0C0","#808080","#FFFF00","#AAAAAA","#C1C1C1","#D4C3F1"]
@@ -37,6 +82,17 @@ function getThematicMapsForSpatialConcept(concept, inarea){
 })    
 }
 
+function extent(layer) {
+    var extent = [Infinity, Infinity, -Infinity, -Infinity];
+    turf.coordEach(layer,function(coord) {
+      if (extent[0] > coord[0]) extent[0] = coord[0];
+      if (extent[1] > coord[1]) extent[1] = coord[1];
+      if (extent[2] < coord[0]) extent[2] = coord[0];
+      if (extent[3] < coord[1]) extent[3] = coord[1];
+    });
+    return extent;
+};
+
 function generateRequirementProfile(concept,property,proplabel){
     var htmlrep="<table border=1>"
     htmlrep+="<tr><th>Criteria</th><th>Preferred Range</th><th>Priority</th><th>Dealbreaker</th></tr>"
@@ -50,13 +106,13 @@ function getLabelForQID(qid){
 	var wikiidregex=new RegExp("^[QP][0-9]+$|^[QP][0-9]+/.*$");
 	console.log(qid)
 	if(wikiidregex.test(qid)){
-queryString="https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&limit=50&continue=0&language=de&uselang=de&search="+qid+"&type=item"
+queryString="https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&limit=50&continue=0&language=de&uselang=de&origin=*&search="+qid+"&type=item"
 $.ajax({
     url: queryString,
  
     // The name of the callback parameter, as specified by the YQL service
     jsonp: "callback",
- 
+	async: false,
     // Tell jQuery we're expecting JSONP
     dataType: "jsonp",
  
@@ -69,7 +125,8 @@ $.ajax({
     // Work with the response
     success: function( result ) {
 		console.log(result["search"][0]["label"])
-		$('#'+qid).text(result["search"][0]["label"]+" ("+qid+")")   
+		return result["search"][0]["label"]
+		//$('#'+qid).text(result["search"][0]["label"]+" ("+qid+")")   
     }
 });
 }
@@ -111,6 +168,7 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
         console.log(data);
         var resultstring=""
         eligiblecounter=0;
+		var conlabel=""
         for(result in data){
             var res=data[result]
             if(res["rel"].includes("direct/") && (res["countval"]/res["countcon"])<0.9){
@@ -121,13 +179,19 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
             getLabelForProperty(res["relLabel"],res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1),labellang)
            }
         }
+		var conlabel=getLabelForQID(concept.substring(concept.indexOf(':')+1))
+		$('#thematicmapheading').html("Thematic Maps ("+conlabel+")")
         $('#thematicmaps').html("Found "+eligiblecounter+" eligible properties<br/>"+resultstring)
         console.log(data); // [{'developerName': 'Mike Bostock'}]
     })
 }
 
 function addToSituation(concept,inarea,relation,labellang){
-    
+    situationBuffer.push({"concept":concept,"inarea":inarea,"relation":relation,"labellang":labellang})
+	var opt=document.createElement("option")
+	opt.value=concept+";"+inarea
+	opt.innerHTML=concept.substring(concept.indexOf(':')+1)+" - "+$('#'+relation.substring(relation.lastIndexOf('/')+1)).html()
+	document.getElementById("usecasecontents").appendChild(opt)
 }
 
 function clearMap() {
@@ -455,9 +519,19 @@ function createLegend2(layer,colormap,legendname){
 	htmlLegend1.addTo(map);
 }
 
+function saveSituation(){
+	var situationname=$('#inputtext').val()
+	situationMap[situationname]=situationBuffer
+	situationBuffer=[]
+	var opt=document.createElement("option")
+	opt.value=situationname
+	opt.innerHTML=situationname
+	document.getElementById("usecases").appendChild(opt)
+}
+
 function searchObjects(){
 	var availableTags = []
-$.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&language=en&search="+$('#object').
+$.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&language=en&search="+$('#topicsearch').
 		val()+"&type=item&limit=7&format=json", function( data ) {
 	  jsonobj=JSON.parse(data);
 	  collect=""
@@ -466,12 +540,12 @@ $.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&lang
 			  ,"value":"http:"+jsonobj["search"][obj]["url"]})
 		  collect+=jsonobj["search"][obj]["label"]+" ("+jsonobj["search"][obj]["description"]+") "+jsonobj["search"][obj]["url"]+"\n";
 	  }
-	    $( "#object" ).autocomplete({
+	    $( "#topicsearch" ).autocomplete({
 	        source: availableTags,
 	        select: function(event, ui) {
 	            if(ui.item){
-                                $('#object').val("");
-                                $('#object').val(ui.item.label);
+                                $('#topicsearch').val("");
+                                $('#topicsearch').val(ui.item.label);
 	          		$('#more2').attr("href",ui.item.value)	
 	          		$('#objuri').val(ui.item.value)	  
                                 event.preventDefault()
@@ -516,73 +590,27 @@ var osmToWikidataMap={}
             loadItems();
         }
 });*/
-var tileid=0;
-		  var tiles = new L.GridLayer()
-/*tiles.createTile = function(coords) {
-  //alert("Grid Redraw")
+
+var tiles = new L.GridLayer();
+tiles.createTile = function(coords) {
   var tile = L.DomUtil.create('canvas', 'leaflet-tile');
-
   var ctx = tile.getContext('2d');
-
   var size = this.getTileSize()
   tile.width = size.x
   tile.height = size.y
-  coords2= this.getTileSize()
-  coords2["z"]=coords.z
-  coords2["y"]=coords.y+1
-  coords2["x"]=coords.x+1;
+  
   // calculate projection coordinates of top left tile pixel
   var nwPoint = coords.scaleBy(size)
-  var swPoint = coords2.scaleBy(size)
+  
+  // calculate geographic coordinates of top left tile pixel
   var nw = map.unproject(nwPoint, coords.z)
-  var sw = map.unproject(swPoint, coords.z)
+  ctx.globalAlpha = 0.4
   ctx.fillStyle = 'white';
-  var bbox = [nw.lng, nw.lat, sw.lng, sw.lat];
-var poly = turf.bboxPolygon(bbox);
-var aggregation=0
-var countcontained=0;
-tilecriteriamap={}
-if(turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
-  for(feat in features["features"]){
-		geom=features["features"][feat]["geometry"]
-		turfgeom=turf.feature(geom)
-		//alert(JSON.stringify(bbox)+" - "+JSON.stringify(turfgeom))
-		if(turf.booleanWithin(turfgeom,poly)){
-			//alert(calculateObjectPercentage(features["features"][feat]))
-			res=calculateObjectPercentage(features["features"][feat])
-			aggregation+=res["percentageValue"]
-			mergeJSON(res["criteriamap"],tilecriteriamap);
-			//alert(JSON.stringify(res["criteriamap"]))
-			countcontained++;
-		}else{
-			//alert("NOT Within BoundingBox: "+JSON.stringify(poly))
-		}
-  }
-  }
-  badmetricgridcount[bbox]=tilecriteriamap;
-  geometriespergrid[bbox]=countcontained;
-    paintColor=getObjectColorForValue(aggregation/countcontained);
-  if(isNaN(aggregation/countcontained)){
-    ctx.lineWidth=0;
-	ctx.globalAlpha = 0.0
-  }else{ 
-  	ctx.globalAlpha = 0.7
-    ctx.fillRect(0, 0, size.x, 25);
-	ctx.fillStyle = 'black';
-	if(countcontained==1){
-	    ctx.fillText('Aggregated Score: '+Math.round(aggregation/countcontained).toFixed(2)+"% ["+paintColor["label"]+"] ("+countcontained+" Geometry)  <a href=# >Link</a>" , 20, 20); 
-	}else{
-	    ctx.fillText('Aggregated Score: '+Math.round(aggregation/countcontained).toFixed(2)+"% ["+paintColor["label"]+"] ("+countcontained+" Geometries)" , 20, 20); 
-	}
-	ctx.globalAlpha = 0.4
-	ctx.fillStyle = paintColor["color"];
-	ctx.fillRect(0, 25, size.x, size.y);
-    ctx.lineWidth=5;
-	ctx.globalAlpha = 0.7
-  }
-
-  ctx.strokeStyle = paintColor["color"];
-
+  ctx.fillRect(0, 0, size.x, 50);
+  ctx.fillStyle = 'black';
+  ctx.fillText('x: ' + coords.x + ', y: ' + coords.y + ', zoom: ' + coords.z, 20, 20);
+  ctx.fillText('lat: ' + nw.lat + ', lon: ' + nw.lng, 20, 40);
+  ctx.strokeStyle = 'red';
   ctx.beginPath();
   ctx.moveTo(0, 0);
   ctx.lineTo(size.x-1, 0);
@@ -592,11 +620,11 @@ if(turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
   ctx.stroke();
   return tile;
 }
-	tiles.addTo(map);*/
-	var layer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-		maxZoom: 19
-});
+var layer=L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
+}).addTo(map)
+	
+tiles.addTo(map)
 		var wmsLayer = L.tileLayer.wms('https://sgx.geodatenzentrum.de/wms_topplus_web_open', {
 layers: 'web',
 format: 'image/png',
@@ -620,26 +648,20 @@ loaded=true;
 </script>
 </div>
     <div class="left col-sm-3" id="contentdesc" style="height:500px;overflow-y: scroll;">
-<h5>Generated Thematic Maps</h5>
+<h5 id="thematicmapheading">Thematic Maps</h5>
 <ul id="thematicmaps">
 </ul>
 </div>
 </div>
 <div class="row">
 <div class="left col-sm-3" id="options">
-Find Topic: <input type="text" id="topicsearch" onkeyup="searchObjects()"/><input type="hidden" id="objuri"/><br/>
+Find Topic: <input type="text" id="topicsearch" onkeyup="searchObjects()"/><input type="hidden" id="objuri"/><input type="hidden" id="dateres"/><a href="#" id="more2" target="_blank">???</a><br/>
 In Area: <input type="text" id="areasearch" onkeyup="searchObjects()"/><input type="hidden" id="areauri"/><br/>
 <select id="labellang">
 <option value="de" selected="selected">German</option>
 <option value="en">English</option>
 </select>
-Usecase Quality Assurance:
-
-<br/>
-<!--<button onclick="getThematicMapsForSpatialConcept()">Click</button>-->
 <button onclick="getThematicMapsAttributesForSpatialConcept()">Eligible Thematic Map Attributes</button>
-<input type="text" id="inputtext"/><button id="saveSituationButton" onclick="saveSituation()">Save Situation</button>
-<!--<button onclick="generateThematicMapForProperty()"></button>-->
 </div>
 <div class="left col-sm-6" id="reqprof">
 </div>
@@ -647,7 +669,26 @@ Usecase Quality Assurance:
 Available Data Quality Metrics:<br/>
 <select id="dataqualitymetrics">
 <option value="posacc">Positional Accuracy</option>
+</select><br/>
+
+</div>
+</div>
+<div class="row">
+<div class="left col-sm-6" id="options">
+Usecase Composition:
+<select id="usecases">
+
 </select>
+<br/>
+UseCase Contents:
+<select id="usecasecontents">
+
+</select>
+<br/>
+<!--<button onclick="getThematicMapsForSpatialConcept()">Click</button>-->
+<input type="text" id="inputtext"/><button id="saveSituationButton" onclick="saveSituation()">Save Situation</button>
+
+<!--<button onclick="generateThematicMapForProperty()"></button>-->
 </div>
 </div>
 <script>
