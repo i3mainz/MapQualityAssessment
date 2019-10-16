@@ -74,6 +74,7 @@
 var colors=["#e65c00","#0000ff","#8c66ff","#ff6666", "#4000ff", "#009933", "#4d004d","#4d004d","#ff0000","#4000ff","#00FF00","#CCEEFF","#0000A0","#800080","#F08080","#6A5ACD","#FFA500","#00FFFF","#C0C0C0","#808080","#FFFF00","#AAAAAA","#C1C1C1","#D4C3F1"]
 var htmlLegend1;
 var resultLayerCollection=[]
+var resultLayerGeoJSON=[]
 var situationBuffer=[]
 var situationMap={}
   var featbbox;
@@ -328,6 +329,12 @@ function isCategoricStringData(data){
 function generateThematicMapForProperty(concept, inarea,property,labellang,clearmap){
     if(clearmap)
         clearMap();
+    else{
+    try{
+        map.removeControl(htmlLegend1);
+    }catch(exception){
+    }
+    }
 	currentproperty=property
     if(!labellang){
         labellang=$('#labellang').val();
@@ -449,13 +456,15 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
                 popup+="</ul>"
                 layer.bindPopup(popup)
                 console.log(feature["properties"]["proplabel"])
-                            $('#'+property.substring(property.lastIndexOf('/')+1)).html(feature["properties"]["proplabel"])
+                if(feature["properties"]["proplabel"])
+                    $('#'+property.substring(property.lastIndexOf('/')+1)).html(feature["properties"]["proplabel"])
             }
         }).addTo(map);
 		features=geojsonresult
         var reqprof=generateRequirementProfile(concept,property,feature["properties"]["proplabel"],colormap)
         $('#reqprof').html(reqprof)
         resultLayerCollection.push(resultLayer)
+        resultLayerGeoJSON.push(geojsonresult)
         if(datatype==1){
             createLegend(resultLayer,ranges,(feature["properties"]["proplabel"]?feature["properties"]["proplabel"]:"Legend")) 
         }else if(datatype==2){
@@ -673,37 +682,43 @@ var poly = turf.bboxPolygon(bbox);
   var res=0;
   var aggregation=0;
   var countcontained=0;
-  if(featbbox && turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
-  for(feat in features["features"]){
-		geom=features["features"][feat]["geometry"]
-		turfgeom=turf.feature(geom)
-		//alert(JSON.stringify(bbox)+" - "+JSON.stringify(turfgeom))
-		if(turf.booleanWithin(turfgeom,poly)){
-			//alert(calculateObjectPercentage(features["features"][feat]))
-			console.log(features["features"][feat]["properties"])
-			console.log(currentproperty)
-			console.log(features["features"][feat]["properties"][currentproperty])
-			if(typeof(features["features"][feat]["properties"][currentproperty])=="undefined"){
-				//res=getObjectColorForValue(0)
-				aggregation+=0
-			}else{
-				//res=getObjectColorForValue(100)
-				aggregation+=100
-			}
-			//aggregation+=res
-			countcontained++;
-			//res=calculateObjectPercentage(features["features"][feat])
-			//aggregation+=res["percentageValue"]
-			//mergeJSON(res["criteriamap"],tilecriteriamap);
-			//alert(JSON.stringify(res["criteriamap"]))
-			//countcontained++;
-		}else{
-			//alert("NOT Within BoundingBox: "+JSON.stringify(poly))
-		}
+  for(reslayer in resultLayerGeoJSON){
+    console.log(features)
+    features=resultLayerGeoJSON[reslayer]
+    currentproperty=situationBuffer[reslayer]["property"]
+    featbbox=turf.bboxPolygon(extent(features))
+    if(featbbox && turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
+        for(feat in features["features"]){
+            geom=features["features"][feat]["geometry"]
+            turfgeom=turf.feature(geom)
+            //alert(JSON.stringify(bbox)+" - "+JSON.stringify(turfgeom))
+            if(turf.booleanWithin(turfgeom,poly)){
+                //alert(calculateObjectPercentage(features["features"][feat]))
+                console.log(features["features"][feat]["properties"])
+                console.log(currentproperty)
+                console.log(features["features"][feat]["properties"][currentproperty])
+                if(typeof(features["features"][feat]["properties"][currentproperty])=="undefined"){
+                    //res=getObjectColorForValue(0)
+                    aggregation+=0
+                }else{
+                    //res=getObjectColorForValue(100)
+                    aggregation+=100
+                }
+                //aggregation+=res
+                countcontained++;
+                //res=calculateObjectPercentage(features["features"][feat])
+                //aggregation+=res["percentageValue"]
+                //mergeJSON(res["criteriamap"],tilecriteriamap);
+                //alert(JSON.stringify(res["criteriamap"]))
+                //countcontained++;
+            }else{
+                //alert("NOT Within BoundingBox: "+JSON.stringify(poly))
+            }
+        }
+    }
+    console.log(aggregation+" - "+countcontained)
+    console.log(aggregation/countcontained)
   }
-  }
-  console.log(aggregation+" - "+countcontained)
-  console.log(aggregation/countcontained)
   paintColor={}
   paintColor=getObjectColorForValue(aggregation/countcontained)
   console.log(paintColor["color"])
