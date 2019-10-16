@@ -1,7 +1,7 @@
 var reqprofiles={
 	"requirements":[
 			{"Emergency":[
-				{"title":"color",10:{"color":"darkred","label":"very bad"},30:{"color":"red","label":"bad"},40:{"color":"#F08080","label":"slightly bad"},50:{"color":"darkorange","label":"mediocre"},60:{"color":"orange","label":"medium"},70:{"color":"lightgreen","label":"slightly good"},80:{"color":"green","label":"good"},100:{"color":"darkgreen","label":"perfect"}},
+				{"title":"color",0:{"color":"darkred","label":"very bad"},10:{"color":"darkred","label":"very bad"},30:{"color":"red","label":"bad"},40:{"color":"#F08080","label":"slightly bad"},50:{"color":"darkorange","label":"mediocre"},60:{"color":"orange","label":"medium"},70:{"color":"lightgreen","label":"slightly good"},80:{"color":"green","label":"good"},100:{"color":"darkgreen","label":"perfect"}},
 				{"title":"NumberOfMissingPointConnections",
 					"optimalValue": "0.0",
 					"from": "0.0",
