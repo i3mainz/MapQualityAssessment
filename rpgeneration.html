@@ -280,8 +280,9 @@ function isCategoricStringData(data){
     return resultset;
 }
 
-function generateThematicMapForProperty(concept, inarea,property,labellang){
-    clearMap();
+function generateThematicMapForProperty(concept, inarea,property,labellang,clearmap){
+    if(clearmap)
+        clearMap();
     if(!labellang){
         labellang=$('#labellang').val();
     }
@@ -529,6 +530,13 @@ function saveSituation(){
 	document.getElementById("usecases").appendChild(opt)
 }
 
+function evaluateSituation(){
+    for(situation in situationBuffer){
+        generateThematicMapForProperty(situationBuffer[situation]["concept"],situationBuffer[situation]["inarea"],situationBuffer[situation]["property"],situationBuffer[situation]["labellang"],false)
+    }
+}
+
+
 function searchObjects(){
 	var availableTags = []
 $.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&language=en&search="+$('#topicsearch').
@@ -687,6 +695,7 @@ UseCase Contents:
 <br/>
 <!--<button onclick="getThematicMapsForSpatialConcept()">Click</button>-->
 <input type="text" id="inputtext"/><button id="saveSituationButton" onclick="saveSituation()">Save Situation</button>
+<button id="evaluateSituationButton" onclick="evaluateSituation()">Evaluate Situation</button>
 
 <!--<button onclick="generateThematicMapForProperty()"></button>-->
 </div>
