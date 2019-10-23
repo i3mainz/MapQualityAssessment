@@ -418,8 +418,8 @@ function getThematicMapForProperties(situationBuffer,clearmap){
 			for(i=0;i<c;i++){
 				feature["properties"][classToProperties[classs][i]]=res["val"+i+"Label"]
 			}
-            feature["properties"]["propuri"]=res["val"]
-            feature["properties"]["proplabel"]=res["propLabel"]
+            //feature["properties"]["propuri"]=res["val"]
+            //feature["properties"]["proplabel"]=res["propLabel"]
             geojsonresult["features"].push(feature)
             }catch(error){
 				console.log(error)
@@ -479,7 +479,11 @@ function getThematicMapForProperties(situationBuffer,clearmap){
             onEachFeature: function (feature, layer) {
                 var popup="<b><a href=\""+feature["properties"]["concept"]+"\">"+feature["properties"]["name"]+"</a></b><ul>"
 				for(prop in feature.properties){
-					popup+="<li><a href=\""+prop+"\">"+prop+"</a> - "+feature["properties"][prop]+"</li>"
+                    if(typeof(feature["properties"][prop])=='undefined'){
+                        popup+="<li><a style=\"color:red\" href=\""+prop+"\">"+prop+"</a> - <span style=\"color:red\">"+feature["properties"][prop]+"</span></li>"                    
+                    }else{
+                        popup+="<li><a href=\""+prop+"\">"+prop+"</a> - "+feature["properties"][prop]+"</li>"
+					}
 				}
                 popup+="</ul>"
                 layer.bindPopup(popup)
