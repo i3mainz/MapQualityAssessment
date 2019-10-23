@@ -187,7 +187,7 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
            }
         }
 		var conlabel=getLabelForQID(concept.substring(concept.indexOf(':')+1))
-		$('#thematicmapheading').html("Thematic Maps ("+conlabel+")")
+		$('#thematicmapheading').html("Thematic Maps ("+conlabel+") <button id='showmap' onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\"http://www.wikidata.org/prop/direct/P31\",\""+$('#labellang').val()+"\")'>Show</button>" )
         $('#thematicmaps').html("Found "+eligiblecounter+" eligible properties<br/>"+resultstring)
         console.log(data); // [{'developerName': 'Mike Bostock'}]
     })
@@ -326,6 +326,174 @@ function isCategoricStringData(data){
     return resultset;
 }
 
+
+function getThematicMapForProperties(situationBuffer,clearmap){
+	console.log(situationBuffer)
+	if(clearmap)
+        clearMap();
+    else{
+    try{
+        map.removeControl(htmlLegend1);
+    }catch(exception){
+    }
+    }
+
+    if(!labellang){
+        labellang=$('#labellang').val();
+    }
+	var classToProperties={}
+	for(situation in situationBuffer){
+		if(!(situationBuffer[situation]["concept"] in classToProperties)){
+			classToProperties[situationBuffer[situation]["concept"]]=[]
+		}
+		classToProperties[situationBuffer[situation]["concept"]].push(situationBuffer[situation]["relation"])
+	}
+	for(classs in classToProperties){
+		//currentproperty=property
+		var colourcounter=0;
+		var queryintro="select distinct ?con ?conLabel ?coord";
+		var query=" ?propLabel WHERE { ?con wdt:P31 "+classs+" . ?con wdt:P625 ?coord . ?con wdt:P17 "+situationBuffer[0]["inarea"]+" . ";
+		var c=0;
+		var outputs="";
+		for(prop in classToProperties[classs]){
+			query+="OPTIONAL {?con <"+classToProperties[classs][prop]+"> ?val"+c+" . }"
+			outputs+=" ?val"+c+" ?val"+c+"Label ";
+			c++;
+		}
+		query=queryintro+outputs+query+" SERVICE wikibase:label { bd:serviceParam wikibase:language \""+situationBuffer[0]["labellang"]+"\" . }  }"
+		console.log(query)
+		d3.sparql(wikidataUrl, query).then((data) => {
+		console.log(data);
+        var geojsonresult={"type":"FeatureCollection","features":[]}
+        var resultstring=""
+        var datatype=detectDataType(data[0]["val"])
+        var max=-1
+        var min=-1
+        var catstring=false;
+        var ranges=[]
+        var colormap={}
+        console.log(datatype)
+        if(datatype==1){
+            var maxmin=getMaxMin(data)
+            min=maxmin["min"]
+            max=maxmin["max"]
+            ranges=createRanges(min,max)
+        }else if(datatype==2){
+            resultset=isCategoricStringData(data)
+            console.log(resultset)
+            catstring=true
+                    for(res in resultset){
+                        if(res=="undefined"){
+                                colormap["undefined"]={"color":"black","amount":resultset[res]}
+                        }else{
+                                colormap[res]={"color":colors[colourcounter%colors.length],"amount":resultset[res]}                        
+                        }
+                        colourcounter++;
+                    }
+                    console.log("categoric string data")
+        }else if(datatype==3){
+            console.log("date")
+            var maxmin=getMaxMinDate(data)
+            min=maxmin["min"]
+            max=maxmin["max"]
+            console.log(maxmin)
+            ranges=createDateRanges(min,max)
+        }
+		var property=classToProperties[classs][0]
+        for(result in data){
+            var res=data[result]
+            var feature={}
+            feature["type"]="Feature"
+            var wkt = new Wkt.Wkt();
+            // Read in any kind of WKT string
+            //console.log(res["coord"])
+            try{
+            wkt.read(res["coord"]);
+            
+			//console.log(wkt.toJson());
+            feature["geometry"]=wkt.toJson()
+            feature["properties"]={}
+            feature["properties"]["concept"]=res["con"]
+            feature["properties"]["name"]=res["conLabel"]
+			for(i=0;i<c;i++){
+				feature["properties"][classToProperties[classs][i]]=res["val"+i+"Label"]
+			}
+            feature["properties"]["propuri"]=res["val"]
+            feature["properties"]["proplabel"]=res["propLabel"]
+            geojsonresult["features"].push(feature)
+            }catch(error){
+				console.log(error)
+            }
+        }
+		console.log("Generated GeoJSON")
+		console.log(geojsonresult)
+        var curcolor="#000000"
+        var resultLayer = L.geoJson(geojsonresult, {
+            style: function (feature) {
+            var funcval=feature["properties"][property]
+            console.log(funcval)
+              if(ranges.length>0){
+                  for(range in ranges){
+                        if(funcval>ranges["range"]["min"] && funcval<ranges["range"]["max"]){
+                            curcolor=ranges["range"]["color"]
+                            return {color: ranges["range"]["color"]}
+                        }
+                  }
+              }
+              curcolor="#ff0000"
+              return {color: "#ff0000"};
+            },
+            filter: function (feature, layer) {			
+              return true;
+            },
+            pointToLayer: function(feature, latlng) {
+               // console.log(ranges)
+                var funcval=feature["properties"][property]
+                //console.log(catstring)
+                if(ranges.length>0){
+                  for(range in ranges){
+                        if(funcval>ranges[range]["min"] && funcval<=ranges[range]["max"]){
+                            curcolor=ranges[range]["color"]
+                            if(!("amount" in ranges[range])){
+                                ranges[range]["amount"]=1
+                            }
+                            ranges[range]["amount"]=ranges[range]["amount"]+1
+                        }
+                  }
+              }else if(property in feature["properties"] && feature["properties"][property] in colormap){
+                    //console.log(feature["properties"][property])
+                    //console.log(colormap)
+                    curcolor=colormap[feature["properties"][property]]["color"]
+              }
+              //curcolor="#ff0000"
+            console.log(curcolor)
+            return L.marker(latlng, {icon: L.divIcon({
+						className: "my-custom-pin",
+						iconAnchor: [0, 24],
+						labelAnchor: [-6, 0],
+						popupAnchor: [0, -36],
+						html: "<span style=\""+"background-color: "+curcolor+";width: 1.5rem;height: 1.5rem;display: block;left: -1rem;top: 0rem;position: relative;border-radius: 3rem 3rem 0;transform: rotate(45deg);border: 1px solid #FFFFFF;"
++"\" color:white>"+funcval+"</span>"
+					})});
+            },
+            onEachFeature: function (feature, layer) {
+                var popup="<b><a href=\""+feature["properties"]["concept"]+"\">"+feature["properties"]["name"]+"</a></b><ul>"
+				for(prop in feature.properties){
+					popup+="<li><a href=\""+prop+"\">"+prop+"</a> - "+feature["properties"]["prop"]+"</li>"
+				}
+                popup+="</ul>"
+                layer.bindPopup(popup)
+               // console.log(feature["properties"]["proplabel"])
+                if(feature["properties"]["proplabel"])
+                    $('#'+property.substring(property.lastIndexOf('/')+1)).html(feature["properties"]["proplabel"])
+            }
+        }).addTo(map);
+		});
+	}
+	
+
+}
+
 function generateThematicMapForProperty(concept, inarea,property,labellang,clearmap){
     if(clearmap)
         clearMap();
@@ -385,11 +553,11 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
             feature["type"]="Feature"
             var wkt = new Wkt.Wkt();
             // Read in any kind of WKT string
-            console.log(res["coord"])
+            //console.log(res["coord"])
             try{
             wkt.read(res["coord"]);
             
-            console.log(wkt.toJson());
+            //console.log(wkt.toJson());
             feature["geometry"]=wkt.toJson()
             feature["properties"]={}
             feature["properties"]["concept"]=res["con"]
@@ -421,9 +589,9 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
               return true;
             },
             pointToLayer: function(feature, latlng) {
-                console.log(ranges)
+               // console.log(ranges)
                 var funcval=feature["properties"][property]
-                console.log(catstring)
+                //console.log(catstring)
                 if(ranges.length>0){
                   for(range in ranges){
                         if(funcval>ranges[range]["min"] && funcval<=ranges[range]["max"]){
@@ -440,7 +608,7 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
                     curcolor=colormap[feature["properties"][property]]["color"]
               }
               //curcolor="#ff0000"
-            console.log(curcolor)
+            //console.log(curcolor)
             return L.marker(latlng, {icon: L.divIcon({
 						className: "my-custom-pin",
 						iconAnchor: [0, 24],
@@ -455,7 +623,7 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
                 popup+="<li><a href=\""+property+"\">"+feature["properties"]["proplabel"]/*property.substring(property.lastIndexOf('/')+1)*/+"</a> - "+feature["properties"][property]+"</li>"
                 popup+="</ul>"
                 layer.bindPopup(popup)
-                console.log(feature["properties"]["proplabel"])
+               // console.log(feature["properties"]["proplabel"])
                 if(feature["properties"]["proplabel"])
                     $('#'+property.substring(property.lastIndexOf('/')+1)).html(feature["properties"]["proplabel"])
             }
@@ -470,7 +638,7 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
         }else if(datatype==2){
             createLegend2(resultLayer,colormap,(feature["properties"]["proplabel"]?feature["properties"]["proplabel"]:"Legend")) 
         }
-        console.log(data); // [{'developerName': 'Mike Bostock'}]
+        //console.log(data); // [{'developerName': 'Mike Bostock'}]
 		featbbox=turf.bboxPolygon(extent(geojsonresult))
 		tiles.redraw();
     })
@@ -590,9 +758,13 @@ function saveSituation(){
 }
 
 function evaluateSituation(){
-    for(situation in situationBuffer){
-        generateThematicMapForProperty(situationBuffer[situation]["concept"],situationBuffer[situation]["inarea"],situationBuffer[situation]["property"],situationBuffer[situation]["labellang"],false)
-    }
+	var sitBuffer=situationMap[$('#usecases').val()]
+	console.log(sitBuffer)
+     getThematicMapForProperties(sitBuffer,true);
+	/*for(situation in sitBuffer){
+	
+        generateThematicMapForProperty(sitBuffer[situation]["concept"],sitBuffer[situation]["inarea"],sitBuffer[situation]["relation"],sitBuffer[situation]["labellang"],false)
+    }*/
 }
 
 
@@ -622,6 +794,18 @@ $.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&lang
 	      });
 
 	});
+}
+
+function loadMetrics(){
+	$.getJSON( "https://www.i3mainz.de/projekte/semgis/statservice/rest/qualityservice/getCapabilities", function( data ) {
+	   var metrics="<option value=\"all\">All</option>";
+	   Object.keys(data).sort().forEach(function(metric) {
+		   metrics+="<option value=\""+metric+"\">"+metric+"</option>";
+		});
+	   result+="</table>";
+	   $('#dataqualitymetrics').html(metrics)
+	   $('#metriccount').html("["+Object.keys(data).length+"]")
+	 });
 }
 </script>
 </head>
@@ -685,7 +869,9 @@ var poly = turf.bboxPolygon(bbox);
   for(reslayer in resultLayerGeoJSON){
     console.log(features)
     features=resultLayerGeoJSON[reslayer]
-    currentproperty=situationBuffer[reslayer]["property"]
+	console.log(situationBuffer)
+	if(reslayer in situationBuffer)
+		currentproperty=situationBuffer[reslayer]["property"]
     featbbox=turf.bboxPolygon(extent(features))
     if(featbbox && turf.booleanWithin(poly,featbbox) || turf.booleanOverlap(poly,featbbox)){
         for(feat in features["features"]){
@@ -805,7 +991,7 @@ In Area: <input type="text" id="areasearch" onkeyup="searchObjects()"/><input ty
 <div class="left col-sm-6" id="reqprof">
 </div>
 <div class="left col-sm-3" id="dataquality">
-Available Data Quality Metrics:<br/>
+Available Data Quality Metrics:<span id="metriccount"></span><button onclick="loadMetrics()">Load</button><br/>
 <select id="dataqualitymetrics">
 <option value="posacc">Positional Accuracy</option>
 </select><br/>
@@ -831,13 +1017,6 @@ UseCase Contents:
 <!--<button onclick="generateThematicMapForProperty()"></button>-->
 </div>
 </div>
-<script>
-var dqmetrics=""
-for(feat in featurefunctions["featurefunctions"]){
-    dqmetrics+="<option value=\""+featurefunctions["featurefunctions"][feat]["title"]+"\">"+featurefunctions["featurefunctions"][feat]["title"]+"</option>"
-}
-$('#dataqualitymetrics').html(dqmetrics)
-</script>
 </body>
 </html>
 
