@@ -383,6 +383,7 @@ function reqProfToTTL(situationBuffer){
 var subjectCategoryToSuperConcepts={}
 var propToSubject={}
 var subjectToProp={}
+var currentDQProvider="https://www.i3mainz.de/projekte/semgis/statservice/rest/"
 
 //Get Properties for Priority 2
 function getSubjectCategories(prop,propuri){
@@ -435,10 +436,36 @@ function getPreferredRanges(prop,propuri){
     });
 }
 
-//METRIC filtering
-function filterMetricsForRelevance(){
-
+//METRIC relevance filtering
+function filterMetricsForRelevance(metricarray){
+	$.getJSON( currentDQProvider+"/sparql/metricsFeasibleForArea?metrics="+encodeURIComponent(metricarray), function( data ) {
+	   var metrics="<option value=\"all\">All</option>";
+	   Object.keys(data).sort().forEach(function(metric) {
+			if(data[metric]){
+				metrics+="<option value=\""+metric+"\">"+metric+"</option>";
+			}
+		});
+	   result+="</table>";
+	   $('#dataqualitymetrics').html(metrics)
+	   $('#metriccount').html("["+Object.keys(data).length+"]")
+	 });
 }
+
+//METRIC filtering
+function filterMetricsForFeasibility(metricarray){
+	$.getJSON( currentDQProvider+"/qualityservice/metricsFeasibleForArea?metrics="+encodeURIComponent(metricarray), function( data ) {
+	   var metrics="<option value=\"all\">All</option>";
+	   Object.keys(data).sort().forEach(function(metric) {
+			if(data[metric]){
+				metrics+="<option value=\""+metric+"\">"+metric+"</option>";
+			}
+		});
+	   result+="</table>";
+	   $('#dataqualitymetrics').html(metrics)
+	   $('#metriccount').html("["+Object.keys(data).length+"]")
+	 });
+}
+
 
 function getRangesPerProperty(data){
 	for(i=0;("val"+i in data);i++){
