@@ -334,6 +334,14 @@ function reqProfToTTL(situationBuffer){
     }
 }
 
+//Get Properties for Priority 2
+function getSubjectCategories(prop){
+    var select="SELECT ?item ?itemLabel ?prop ?val WHERE {?prop wikibase:directClaim <"+prop+"> . ?prop wdt:P1629 ?val .  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }}"
+    d3.sparql(wikidataUrl, select).then((data) => {
+            
+    });
+}
+
 function getThematicMapForProperties(situationBuffer,clearmap){
 	console.log(situationBuffer)
 	if(clearmap)
