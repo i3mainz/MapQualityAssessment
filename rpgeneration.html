@@ -100,11 +100,50 @@ function extent(layer) {
     return extent;
 };
 
+function generateRequirementProfileFromSituation(situationBuffer){
+	var thematicallyrelated={}
+	for(subject in subjectCategoryToSuperConcepts){
+			console.log("beep")
+			console.log(subjectCategoryToSuperConcepts[subject])		
+			for(sub2 in subjectCategoryToSuperConcepts){
+				if(subject!=sub2){
+				for(superconcept in subjectCategoryToSuperConcepts[sub2]){
+					console.log(subjectCategoryToSuperConcepts[sub2][superconcept]["class"])
+					for(supercon2 in subjectCategoryToSuperConcepts[subject]){
+					try{
+						if(subjectCategoryToSuperConcepts[sub2][superconcept]["class"]==subjectCategoryToSuperConcepts[subject][supercon2]["class"] && subjectCategoryToSuperConcepts[subject][supercon2]["class"]!=subject && subjectCategoryToSuperConcepts[sub2][supercon2]["class"]!=sub2){
+							console.log("match: "+subjectCategoryToSuperConcepts[sub2][superconcept]["label"]+" - "+subjectCategoryToSuperConcepts[subject][supercon2]["label"])
+							thematicallyrelated[subject]=subjectCategoryToSuperConcepts[sub2][superconcept];
+						}
+					}catch(error){}
+					}
+				}
+					//console.log(JSON.stringify(subjectCategoryToSuperConcepts[subject])+" - "+JSON.stringify(subjectCategoryToSuperConcepts[sub2]))
+				}
+			}
+	}
+	var htmlrep="<table border=1>"
+	htmlrep+="<tr><th>Criteria</th><th>Preferred Range</th><th>Priority</th><th>Dealbreaker</th></tr>"
+	htmlrep+="<tr><td><a href=\"http://www.i3mainz.de/projekte/semgis/statservice/rest/qualityservice/geometry/validity\">Geometry Validity</a></td><td></td><td>1</td><td>true</td></tr>"
+	console.log(situationBuffer)
+	for(sit in situationBuffer){
+		htmlrep+="<tr><td><a href=\""+situationBuffer[sit]["relation"]+"\">"+situationBuffer[sit]["rellabel"]+"</a></td><td></td><td>1</td><td>true</td></tr>"
+	}
+	for(theme in thematicallyrelated){
+		htmlrep+="<tr><td><a href=\""+thematicallyrelated[theme]["class"]+"\">"+subjectToProp[theme]+" - "+thematicallyrelated[theme]["label"]+"</a></td><td></td><td>2</td><td>false</td></tr>"
+	}
+    htmlrep+="<tr><td>Completeness</td><td>90-100%</td><td>3</td><td>false</td></tr>"
+    htmlrep+="</table>"
+	$('#reqprof').html(htmlrep)
+    return htmlrep;
+}
+
+
 function generateRequirementProfile(concept,property,proplabel){
     var htmlrep="<table border=1>"
     htmlrep+="<tr><th>Criteria</th><th>Preferred Range</th><th>Priority</th><th>Dealbreaker</th></tr>"
     htmlrep+="<tr><td><a href=\""+property+"\">"+proplabel+"</a></td><td></td><td>1</td><td>true</td></tr>"
-    htmlrep+="<tr><td>Completeness</td><td>90-100%</td><td>2</td><td>false</td></tr>"
+    htmlrep+="<tr><td>Completeness</td><td>90-100%</td><td>3</td><td>false</td></tr>"
     htmlrep+="</table>"
     return htmlrep;
 }
@@ -153,6 +192,8 @@ function getLabelForProperty(property,prop,labellang){
     })
 }
 
+var queriesfinished=0
+
 function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
     if(!concept){
         console.log($('#topicsearch').val())
@@ -180,21 +221,26 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
             var res=data[result]
             if(res["rel"].includes("direct/") && (res["countval"]/res["countcon"])<0.9){
             eligiblecounter++;
-            resultstring+="<li><a href=\""+res["rel"]+"\" id=\""+res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1)+"\">"
+			resultstring+="<li><a href=\""+res["rel"]+"\" id=\""+res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1)+"\">"
             +getLabelForProperty(res["relLabel"])+
-            "</a><br/><button onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Create Map</button><button onclick='addToSituation(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Add To Situation</button></li>"
+            "</a><br/><button onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+$('#labellang').val()+"\")'>Create Map</button><button onclick='addToSituation(\""+concept+"\",\""+inarea+"\",\""+res["rel"]+"\",\""+res["relLabel"]+"\",\""+$('#labellang').val()+"\")'>Add To Situation</button><span id=\""+res["rel"].substring(res["rel"].lastIndexOf('/')+1)+"_topic\"/></li>"
             getLabelForProperty(res["relLabel"],res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1),labellang)
            }
         }
 		var conlabel=getLabelForQID(concept.substring(concept.indexOf(':')+1))
 		$('#thematicmapheading').html("Thematic Maps ("+conlabel+") <button id='showmap' onclick='generateThematicMapForProperty(\""+concept+"\",\""+inarea+"\",\"http://www.wikidata.org/prop/direct/P31\",\""+$('#labellang').val()+"\")'>Show</button>" )
         $('#thematicmaps').html("Found "+eligiblecounter+" eligible properties<br/>"+resultstring)
-        console.log(data); // [{'developerName': 'Mike Bostock'}]
+		 for(result in data){
+            var res=data[result]
+			getSubjectCategories(res["rel"].substring(res["rel"].lastIndexOf('/')+1)+"_topic",res["rel"])
+		}
+		console.log(subjectCategoryToSuperConcepts)
+        //console.log(data); // [{'developerName': 'Mike Bostock'}]
     })
 }
 
-function addToSituation(concept,inarea,relation,labellang){
-    situationBuffer.push({"concept":concept,"inarea":inarea,"relation":relation,"labellang":labellang})
+function addToSituation(concept,inarea,relation,rellabel,labellang){
+    situationBuffer.push({"concept":concept,"inarea":inarea,"relation":relation,"rellabel":relation,"labellang":labellang})
 	var opt=document.createElement("option")
 	opt.value=concept+";"+inarea
 	opt.innerHTML=concept.substring(concept.indexOf(':')+1)+" - "+$('#'+relation.substring(relation.lastIndexOf('/')+1)).html()
@@ -334,13 +380,103 @@ function reqProfToTTL(situationBuffer){
     }
 }
 
+var subjectCategoryToSuperConcepts={}
+var propToSubject={}
+var subjectToProp={}
+
 //Get Properties for Priority 2
-function getSubjectCategories(prop){
-    var select="SELECT ?item ?itemLabel ?prop ?val WHERE {?prop wikibase:directClaim <"+prop+"> . ?prop wdt:P1629 ?val .  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }}"
+function getSubjectCategories(prop,propuri){
+    var select="SELECT ?prop ?val ?valLabel ?super ?superLabel WHERE {?prop wikibase:directClaim <"+propuri+"> . ?prop wdt:P1629 ?val .  ?val wdt:P31* ?super .  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }}"
+	console.log(select)
     d3.sparql(wikidataUrl, select).then((data) => {
-            
+            console.log(data)
+			htmlres="<br/>Subjects: "
+			subjects={}
+			for(res in data){
+				if(!(data[res]["val"] in subjects)){
+					subjects[data[res]["val"]]=true;
+					htmlres+="<a href=\""+data[res]["val"]+"\">"+data[res]["valLabel"]+"</a>|"
+					if(!(data[res]["val"] in subjectToProp)){
+						subjectToProp[data[res]["val"]]=[]
+					}
+					subjectToProp[data[res]["val"]].push(prop)
+				}
+				if(!(data[res]["val"] in subjectCategoryToSuperConcepts)){
+					subjectCategoryToSuperConcepts[data[res]["val"]]=[]
+				}
+				subjectCategoryToSuperConcepts[data[res]["val"]].push({"class":data[res]["super"],"label":data[res]["superLabel"]});
+			}	
+			propToSubjects[prop]=subjects
+			queriesfinished++
+			return $('#'+prop).html(htmlres);
     });
 }
+var ranges=[]
+var colormap={}
+function getPreferredRanges(prop,propuri){
+    var select="SELECT ?prop ?val ?valLabel ?super ?superLabel WHERE {?prop wikibase:directClaim <"+propuri+"> . ?prop wdt:P1629 ?val .  ?val wdt:P31* ?super .  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],en\". }}"
+	console.log(select)
+    d3.sparql(wikidataUrl, select).then((data) => {
+            console.log(data)
+			htmlres="<br/>Subjects: "
+			subjects={}
+			for(res in data){
+				if(!(data[res]["val"] in subjects)){
+					subjects[data[res]["val"]]=true;
+					htmlres+="<a href=\""+data[res]["val"]+"\">"+data[res]["valLabel"]+"</a>|"
+				}
+				if(!(data[res]["val"] in subjectCategoryToSuperConcepts)){
+					subjectCategoryToSuperConcepts[data[res]["val"]]=[]
+				}
+				subjectCategoryToSuperConcepts[data[res]["val"]].push({"class":data[res]["super"],"label":data[res]["superLabel"]});
+			}			
+			queriesfinished++
+			return $('#'+prop).html(htmlres);
+    });
+}
+
+//METRIC filtering
+function filterMetricsForRelevance(){
+
+}
+
+function getRangesPerProperty(data){
+	for(i=0;("val"+i in data);i++){
+        var max=-1
+        var min=-1
+        var catstring=false;
+        ranges=[]
+        colormap={}
+        console.log(datatype)
+        if(datatype==1){
+            var maxmin=getMaxMin(data)
+            min=maxmin["min"]
+            max=maxmin["max"]
+            ranges=createRanges(min,max)
+        }else if(datatype==2){
+            resultset=isCategoricStringData(data)
+            console.log(resultset)
+            catstring=true
+                    for(res in resultset){
+                        if(res=="undefined"){
+                                colormap["undefined"]={"color":"black","amount":resultset[res]}
+                        }else{
+                                colormap[res]={"color":colors[colourcounter%colors.length],"amount":resultset[res]}                        
+                        }
+                        colourcounter++;
+                    }
+                    console.log("categoric string data")
+        }else if(datatype==3){
+            console.log("date")
+            var maxmin=getMaxMinDate(data)
+            min=maxmin["min"]
+            max=maxmin["max"]
+            console.log(maxmin)
+            ranges=createDateRanges(min,max)
+        }
+	}
+}
+
 
 function getThematicMapForProperties(situationBuffer,clearmap){
 	console.log(situationBuffer)
@@ -356,6 +492,7 @@ function getThematicMapForProperties(situationBuffer,clearmap){
     if(!labellang){
         labellang=$('#labellang').val();
     }
+	generateRequirementProfileFromSituation(situationBuffer)
 	var classToProperties={}
 	for(situation in situationBuffer){
 		if(!(situationBuffer[situation]["concept"] in classToProperties)){
@@ -385,8 +522,8 @@ function getThematicMapForProperties(situationBuffer,clearmap){
         var max=-1
         var min=-1
         var catstring=false;
-        var ranges=[]
-        var colormap={}
+        ranges=[]
+        colormap={}
         console.log(datatype)
         if(datatype==1){
             var maxmin=getMaxMin(data)
@@ -1015,7 +1152,7 @@ In Area: <input type="text" id="areasearch" onkeyup="searchObjects()"/><input ty
 <option value="de" selected="selected">German</option>
 <option value="en">English</option>
 </select>
-<button onclick="getThematicMapsAttributesForSpatialConcept()">Eligible Thematic Map Attributes</button>
+<button onclick="getThematicMapsAttributesForSpatialConcept()">Eligible Thematic Map Attributes</button><button onclick="generateRequirementProfile('','','')">Generate Reqprof</button>
 </div>
 <div class="left col-sm-6" id="reqprof">
 </div>
