@@ -327,6 +327,13 @@ function isCategoricStringData(data){
 }
 
 
+function reqProfToTTL(situationBuffer){
+    
+    for(sit in situationBuffer){
+        
+    }
+}
+
 function getThematicMapForProperties(situationBuffer,clearmap){
 	console.log(situationBuffer)
 	if(clearmap)
@@ -464,6 +471,16 @@ function getThematicMapForProperties(situationBuffer,clearmap){
                     //console.log(feature["properties"][property])
                     //console.log(colormap)
                     curcolor=colormap[feature["properties"][property]]["color"]
+              }
+              var found=false;
+              for(prop in feature["properties"]){
+                    if(typeof(feature["properties"][prop])=='undefined'){
+                        curcolor="red";
+                        found=true;
+                    }
+              }
+              if(!found){
+                curcolor="green"
               }
               //curcolor="#ff0000"
             console.log(curcolor)
