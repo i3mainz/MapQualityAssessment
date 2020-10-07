@@ -965,7 +965,7 @@ function searchObjects(){
 	var availableTags = []
 $.get( "https://www.wikidata.org/w/api.php?action=wbsearchentities&origin=*&language=en&search="+$('#topicsearch').
 		val()+"&type=item&limit=7&format=json", function( data ) {
-	  jsonobj=JSON.parse(data);
+	  jsonobj=data;
 	  collect=""
 	  for(obj in jsonobj["search"]){
 		  availableTags.push({"label":jsonobj["search"][obj]["label"]+" ("+jsonobj["search"][obj]["description"]+") "
