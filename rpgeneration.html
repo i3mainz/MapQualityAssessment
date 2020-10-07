@@ -134,7 +134,7 @@ function generateRequirementProfileFromSituation(situationBuffer){
 	}
     htmlrep+="<tr><td>Completeness</td><td>90-100%</td><td>3</td><td>false</td></tr>"
     htmlrep+="</table>"
-	$('#reqprof').html(htmlrep)
+	//$('#reqprof').html(htmlrep)
     return htmlrep;
 }
 
@@ -219,7 +219,7 @@ function getThematicMapsAttributesForSpatialConcept(concept, inarea,labellang){
 		var conlabel=""
         for(result in data){
             var res=data[result]
-            if(res["rel"].includes("direct/") && (res["countval"]/res["countcon"])<0.9){
+            if(res["rel"].includes("direct/") && (res["countval"]/res["countcon"])<10000){
             eligiblecounter++;
 			resultstring+="<li><a href=\""+res["rel"]+"\" id=\""+res["relLabel"].substring(res["relLabel"].lastIndexOf('/')+1)+"\">"
             +getLabelForProperty(res["relLabel"])+
@@ -823,7 +823,7 @@ function generateThematicMapForProperty(concept, inarea,property,labellang,clear
         }).addTo(map);
 		features=geojsonresult
         var reqprof=generateRequirementProfile(concept,property,feature["properties"]["proplabel"],colormap)
-        $('#reqprof').html(reqprof)
+        //$('#reqprof').html(reqprof)
         resultLayerCollection.push(resultLayer)
         resultLayerGeoJSON.push(geojsonresult)
         if(datatype==1){
@@ -1138,7 +1138,7 @@ var poly = turf.bboxPolygon(bbox);
   ctx.stroke();
   return tile;
 }
-var layer=L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var layer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
    attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
 }).addTo(map)
 	
@@ -1182,6 +1182,14 @@ In Area: <input type="text" id="areasearch" onkeyup="searchObjects()"/><input ty
 <button onclick="getThematicMapsAttributesForSpatialConcept()">Eligible Thematic Map Attributes</button><button onclick="generateRequirementProfile('','','')">Generate Reqprof</button>
 </div>
 <div class="left col-sm-6" id="reqprof">
+<table border=1>
+<tr><th>Criteria</th><th>Preferred Range</th><th>Priority</th><th>Dealbreaker</th></tr>
+<tr><td><a href="">Wheelchair</a></td><td></td><td>1</td><td>true</td></tr>
+<tr><td><a href="https://www.i3mainz.de/projekte/semgis/statservice/rest/qualityservice/geometry/validity">Geometry Validity</a></td><td></td><td>1</td><td>true</td></tr>
+<tr><td><a  href="">toilets:wheelchair</a></td><td></td><td>2</td><td>false</td></tr>
+<tr><td><a  href="">Freshness</a></td><td>&lt;365 days</td><td>3</td><td>false</td></tr>
+<tr><td><a  href="">Positional Accuracy</a></td><td>&gt;12</td><td>4</td><td>false</td></tr>
+</table>
 </div>
 <div class="left col-sm-3" id="dataquality">
 Available Data Quality Metrics:<span id="metriccount"></span><button onclick="loadMetrics()">Load</button><br/>
